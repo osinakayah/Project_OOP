@@ -1,13 +1,11 @@
 class Board
-
+    attr_accessor :current_player
     def initialize(player_one, player_two)
       @player_one = player_one
       @player_two = player_two
-      if @player_one.get_index == 1
-        @current_player = @player_one
-      else
-        @current_player = @player_two
-      end
+
+      @current_player = @player_one.get_index == 1 ? @player_one : @player_two
+
       @winner = nil
       @is_game_ended = false
       @positions = [1,2,3,4,5,6,7,8,9]
@@ -16,10 +14,7 @@ class Board
     def positions(positions)
       @positions = positions
     end
-    def current_player
-      @current_player
-    end
-  
+
     def start_game
       while @is_game_ended == false
         display_board
@@ -50,7 +45,7 @@ class Board
       case true
         when (@positions[0] == 'O' && @positions[1] == 'O' && @positions[2] == 'O') || (@positions[0] == 'X' && @positions[1] == 'X' && @positions[2] == 'X')
           return true
-        when (@positions[3] == 'O' && @positions[4] == '0' && @positions[5] == 'O') || (@positions[3] == 'X' && @positions[4] == 'X' && @positions[5] == 'X')
+        when (@positions[3] == 'O' && @positions[4] == 'O' && @positions[5] == 'O') || (@positions[3] == 'X' && @positions[4] == 'X' && @positions[5] == 'X')
           return true
         when (@positions[6] == 'O' && @positions[7] == 'O' && @positions[8] == 'O') || (@positions[6] == 'X' && @positions[7] == 'X' && @positions[8] == 'X')
           return true

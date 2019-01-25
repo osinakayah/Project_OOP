@@ -9,10 +9,10 @@ class Player
   end
 
   def get_name
-    return @player_name
+    @player_name
   end
 
   def get_index
-    return @player_index
+    @player_index
   end
 end
